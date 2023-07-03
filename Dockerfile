@@ -16,6 +16,7 @@ COPY . .
 
 # Install dependencies here
 RUN npm i
+RUN chmod +x entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["help"]
