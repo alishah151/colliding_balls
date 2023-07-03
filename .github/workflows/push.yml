@@ -1,0 +1,9 @@
+name: npm publish package
+run-name: ${{ github.actor }} pushed to package
+on: [push]
+jobs:
+  runpublish:
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    run: npm run publish
