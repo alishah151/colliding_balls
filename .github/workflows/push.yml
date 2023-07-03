@@ -4,6 +4,6 @@ on: [push]
 jobs:
   runpublish:
     env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
       NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
     run: npm run publish
