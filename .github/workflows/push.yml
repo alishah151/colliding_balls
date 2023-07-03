@@ -2,10 +2,25 @@ name: npm publish package
 run-name: ${{ github.actor }} pushed to package
 on: [push]
 jobs:
-  runpublish:
+  publish:
+    name: Publish
+    needs: test
     runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-      NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    if: github.event_name == 'push' && ( github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main' )
     steps:
-      - run: npm run publish
+      - uses: actions/checkout@v2
+      - name: Cache node_modules
+        id: cache-modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: 12.x-${{ runner.OS }}-build-${{ hashFiles('package.json') }}
+      - name: Build
+        if: steps.cache-modules.outputs.cache-hit != 'true'
+        run: npm install
+
+      - name: Publish
+        uses: alishah151/merge-release@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
