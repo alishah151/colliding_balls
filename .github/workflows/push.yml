@@ -19,7 +19,7 @@ jobs:
         run: npm install
 
       - name: Publish
-        uses: alishah151/colliding_balls@master
+        uses: alishah151/colliding_balls@main
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
