@@ -1,5 +1,9 @@
 # colliding_balls
 
+# Credits:
+
+https://spicyyoghurt.com/tutorials/html5-javascript-game-development/collision-detection-physics
+
 ## Example USage
 
 import { collidingBalls } from "colliding_balls";

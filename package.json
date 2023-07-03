@@ -1,0 +1,33 @@
+{
+  "name": "colliding_balls",
+  "version": "1.0.0",
+  "description": "This is simple module that will generate a canvas which will have balls that can collide and move randomly.",
+  "main": "colliding.js",
+  "scripts": {
+    "test": "test",
+    "release:major": "npm version $(semver $npm_package_version -i major) && npm publish --tag latest",
+    "release:minor": "npm version $(semver $npm_package_version -i minor) && npm publish --tag latest",
+    "release:patch": "npm version $(semver $npm_package_version -i patch) && npm publish --tag latest",
+    "publish": "npm run release:minor"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alishah151/colliding_balls.git"
+  },
+  "keywords": [
+    "colliding",
+    "balls",
+    "canvas",
+    "colliding",
+    "balls"
+  ],
+  "author": "muhammadali151@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alishah151/colliding_balls/issues"
+  },
+  "homepage": "https://github.com/alishah151/colliding_balls#readme",
+  "devDependencies": {
+    "semver": "^7.5.3"
+  }
+}
