@@ -3,6 +3,7 @@ run-name: ${{ github.actor }} pushed to package
 on: [push]
 jobs:
   runpublish:
+    runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
       NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
