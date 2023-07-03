@@ -6,4 +6,5 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
       NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-    run: npm run publish
+    steps:
+      - run: npm run publish
