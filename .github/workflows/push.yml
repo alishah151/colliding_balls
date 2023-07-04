@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 0
+          fetch-depth: 1
       - name: github_safe
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - name: Cache node_modules
