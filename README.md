@@ -9,8 +9,8 @@ https://spicyyoghurt.com/tutorials/html5-javascript-game-development/collision-d
 import { collidingBalls } from "colliding_balls";
 
 collidingBalls({
-$ele: notNavRef?.current,
-id: "collider",
+$ele: HTMLElement, //HTML DOM ELEMENT
+id: "collider", // id of the canvas created
 isStatic: false,
 count: 1000,
 size: 1,
