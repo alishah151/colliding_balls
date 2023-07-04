@@ -8,13 +8,6 @@ jobs:
     if: github.event_name == 'push' && ( github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main' )
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 1
-      - name: Build
-        run: npm install
-
-      - name: github_safe
-        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - name: Publish
         uses: alishah151/colliding_balls@main
