@@ -8,6 +8,8 @@ jobs:
     if: github.event_name == 'push' && ( github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main' )
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: github_safe
         run: git config --global --add safe.directory $(realpath .)
       - name: Cache node_modules
