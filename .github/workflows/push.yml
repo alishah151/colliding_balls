@@ -10,8 +10,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 1
-      - name: github_safe
-        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - name: Cache node_modules
         id: cache-modules
         uses: actions/cache@v1
@@ -22,11 +20,11 @@ jobs:
         if: steps.cache-modules.outputs.cache-hit != 'true'
         run: npm install
 
+      - name: github_safe
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
       - name: Publish
         uses: alishah151/colliding_balls@main
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-        run: |
-          git config --global --add safe.directory "$GITHUB_WORKSPACE"
-          npm publish
