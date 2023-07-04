@@ -18,5 +18,7 @@ COPY . .
 RUN npm i
 # RUN chmod +x entrypoint.sh
 
+RUN git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["help"]
