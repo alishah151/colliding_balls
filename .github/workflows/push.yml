@@ -7,17 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && ( github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main' )
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 1
-      - name: Cache node_modules
-        id: cache-modules
-        uses: actions/cache@v1
-        with:
-          path: node_modules
-          key: 12.x-${{ runner.OS }}-build-${{ hashFiles('package.json') }}
       - name: Build
-        if: steps.cache-modules.outputs.cache-hit != 'true'
         run: npm install
 
       - name: github_safe
