@@ -7,8 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && ( github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main' )
     steps:
-      - uses: actions/checkout@v1
-      - run: git init
+      - uses: actions/checkout@v2
+      - name: github_safe
+        run: git config --global --add safe.directory $(realpath .)
       - name: Cache node_modules
         id: cache-modules
         uses: actions/cache@v1
