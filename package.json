@@ -1,6 +1,6 @@
 {
   "name": "colliding_balls",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "This is simple module that will generate a canvas which will have balls that can collide and move randomly.",
   "main": "colliding.js",
   "scripts": {
